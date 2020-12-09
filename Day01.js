@@ -5,25 +5,29 @@ for(i=0; i<j-1; i++) {
   var valueB=2020-valueA;
   var found = myInput.find(element => element == valueB);
   if(found!=undefined) {
-    console.log("-->", valueA,"("+i+")",valueB,"("+found+") =",valueA+valueB);
+    console.log("Part1:\n", valueA,"("+i+")",valueB,"("+found+") =",valueA+valueB);
     i=j;
   }
 }
 
 for (i = 0; i < j - 2; i++) {
   var valueA = myInput[i];
-  for (n = i + 1; n < j - 1; n++) {
-    var valueB = myInput[n];
-    var tmp = valueA + valueB;
-    if (tmp < 2020) {
-      var valueC = 2020-tmp;
-      var found = myInput.find(element => element == valueC);
-      var valueC = 2020 - tmp;
-      if (found!=undefined) {
-        console.log("-->", valueA, "(" + i + ") +", valueB, "(" + n + ") +", valueC, "(" + found + ") =", valueA + valueB + valueC);
-        console.log("   ", valueA, "(" + i + ") *", valueB, "(" + n + ") *", valueC, "(" + found + ") =", valueA * valueB * valueC);
-        i=j;
-        n=j;
+  if (valueA < 1000) {
+    for (n = i + 1; n < j - 1; n++) {
+      var valueB = myInput[n];
+      if (valueB < 1000) {
+        var tmp = valueA + valueB;
+        if (tmp < 2020) {
+          var valueC = 2020 - tmp;
+          var found = myInput.find(element => element == valueC);
+          var valueC = 2020 - tmp;
+          if (found != undefined) {
+            console.log("Part 2:\n", valueA, "(" + i + ") +", valueB, "(" + n + ") +", valueC, "(" + found + ") =", valueA + valueB + valueC);
+            console.log("",valueA, "(" + i + ") *", valueB, "(" + n + ") *", valueC, "(" + found + ") =", valueA * valueB * valueC);
+            i = j;
+            n = j;
+          }
+        }
       }
     }
   }
