@@ -338,10 +338,12 @@ function day03(incX = 1, incY = 1) {
       // console.log(i, posx, line, count);
     } else line = line.substr(0, posx) + "O" + line.substr(posx + 1);
   }
-  console.log(count);
+  var lnNum = "Scenario "+(incX)+"/"+(incY)+": "+count;
+  if(incX==3) lnNum+= " (part 1)"
+  console.log(lnNum);
   return count;
 }
 a=day03(1,1)*day03(3,1)*day03(5,1)*day03(7,1)*day03(1,2);
-console.log("Total:", a);
+console.log("Total:", a,"(part 2)");
 
 // 77*218*65*82*43 = 3847183340

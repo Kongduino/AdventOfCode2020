@@ -956,7 +956,7 @@ for (ix = 0; ix < jx; ix++) {
   r[col]="X";
   flight[row]=r;
 }
-console.log("Best score:", score);
+console.log("Best score:", score,"(part 1)");
 
 // console.table(flight);
 
@@ -965,7 +965,7 @@ for (ix = 0; ix < 128; ix++) {
   // console.log(ix, r);
   n=r.search(/X\.X/);
   if(n>-1) {
-    console.log("Found it",ix,n+1,"ID:", (ix*8+n+1));
-    ix=129;
+    console.log("Found it",ix,n+1,"ID:", (ix*8+n+1),"(part 2)");
+    break;
   }
 }

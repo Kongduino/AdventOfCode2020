@@ -1007,5 +1007,6 @@ function day02() {
   pwd = "wwwwrswthgwhkwwrw"; r = RegExp(/^w{15,17}$/); pwd0 = pwd.replace(/[^w]+/g,""); if (r.test(pwd0))valid += 1;
   pwd = "lbhdhplmbnwh"; r = RegExp(/^h{5,9}$/); pwd0 = pwd.replace(/[^h]+/g,""); if (r.test(pwd0))valid += 1;
   pwd = "jdddqqt"; r = RegExp(/^d{5,6}$/); pwd0 = pwd.replace(/[^d]+/g,""); if (r.test(pwd0))valid += 1;
-  console.log(valid);
+  console.log("Valid pwd:",valid);
 }
+day02();

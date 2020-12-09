@@ -5,7 +5,7 @@ for(i=0; i<j-1; i++) {
   var valueB=2020-valueA;
   var found = myInput.find(element => element == valueB);
   if(found!=undefined) {
-    console.log("-->", valueA,"("+i+")",valueB,"("+found+") =",valueA+valueB);
+    print("-->", valueA,"("+i+")",valueB,"("+found+") =",valueA+valueB);
     i=j;
   }
 }
