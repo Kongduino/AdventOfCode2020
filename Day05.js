@@ -965,7 +965,7 @@ for (ix = 0; ix < 128; ix++) {
   // console.log(ix, r);
   n=r.search(/X\.X/);
   if(n>-1) {
-    console.log("Found it",ix,n+1,"ID:", (ix*8+n+1),"(part 2)");
+    console.log("Found it:",ix,n+1,"ID:", (ix*8+n+1),"(part 2)");
     break;
   }
 }

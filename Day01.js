@@ -13,9 +13,11 @@ for(i=0; i<j-1; i++) {
 for (i = 0; i < j - 2; i++) {
   var valueA = myInput[i];
   if (valueA < 1000) {
+    // Numbers 1,000 and up will fail. Skip.
     for (n = i + 1; n < j - 1; n++) {
       var valueB = myInput[n];
       if (valueB < 1000) {
+        // Numbers 1,000 and up will fail. Skip.
         var tmp = valueA + valueB;
         if (tmp < 2020) {
           var valueC = 2020 - tmp;

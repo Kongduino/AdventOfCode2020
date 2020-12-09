@@ -334,9 +334,9 @@ function day03(incX = 1, incY = 1) {
     posx += incX;
     if (line.substr(posx, 1) == "#") {
       count += 1;
-      line = line.substr(0, posx) + "X" + line.substr(posx + 1);
+      // line = line.substr(0, posx) + "X" + line.substr(posx + 1);
       // console.log(i, posx, line, count);
-    } else line = line.substr(0, posx) + "O" + line.substr(posx + 1);
+    } // else line = line.substr(0, posx) + "O" + line.substr(posx + 1);
   }
   var lnNum = "Scenario "+(incX)+"/"+(incY)+": "+count;
   if(incX==3) lnNum+= " (part 1)"

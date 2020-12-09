@@ -288,10 +288,11 @@ lines.push('{"byr": "1981", "ecl": "gry", "hcl": "#b6652a", "eyr": "2033", "iyr"
 lines.push('{"byr": "1970", "cid": "172", "hcl": "#64fbcb", "eyr": "2007", "ecl": "hzl", "pid": "982450142", "hgt": "61cm", "iyr": "2019"}');
 lines.push('{"eyr": "2025", "hgt": "161cm", "iyr": "1962", "pid": "394421140", "ecl": "gry", "cid": "209", "hcl": "#efcc98", "byr": "2001"}');
 
-var field="";
+var field=""; // Used to check validity
+// if field != "pid" after return validation failed.
 function validate(o) {
-  field="byr";
   if(o==undefined) return;
+  field="byr";
   var x=parseInt(o[field]);
   if(x<1920||x>2002) return;
 
@@ -340,7 +341,7 @@ for(i=0;i<j;i++) {
     validate(o);
     // if(field!="pid") console.log(i,"7-count fail");
     // else console.log(i,"7-count pass");
-  } else {
+  //} else {
     // console.log(i,"fail");
   }
 }
