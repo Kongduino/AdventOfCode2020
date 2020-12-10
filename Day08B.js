@@ -655,7 +655,7 @@ function run() {
     var [inst, val] = lines[PC].split(" ");
     // console.log(" . counter =", counter, "instruction:", lines[PC]);
     if (instructionsDone[PC] == "Y") {
-      console.log("Stop. counter =", counter);
+      // console.log("Stop. counter =", counter);
       keepGoing = false;
       return PC;
     }
@@ -670,7 +670,7 @@ function run() {
       PC += 1;
     }
     if (PC == j) {
-      console.log("End of file. counter =", counter);
+      // console.log("End of file. counter =", counter);
       keepGoing = false;
       return PC;
     }
@@ -689,7 +689,7 @@ for (ix = 0; ix < jx; ix++) {
     lines[ix] = "nop " + val0;
   }
   var result = run();
-  console.log(ix, lines[ix], result);
+  // console.log(ix, lines[ix], result);
   lines[ix] = sw + " " + val0;
   if (result == jx) {
     console.log("Success. Stop at", ix);

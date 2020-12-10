@@ -653,7 +653,7 @@ var PC=0;
 var keepGoing=true;
 while(keepGoing) {
   var [inst,val]=lines[PC].split(" ");
-  console.log(" . counter =",counter,"instruction:",lines[PC]);
+  // console.log(" . counter =",counter,"instruction:",lines[PC]);
   if(instructionsDone[PC]=="Y") {
     console.log("Stop. counter =",counter);
     keepGoing=false;
