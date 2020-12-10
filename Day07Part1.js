@@ -6,7 +6,7 @@ and a graph.addDependency() instruction.
 
 Since all nodes need to be added first, I then sorted the
 lines alphabetically, putting all the graph.addDependency
-at the bottom.
+at the bottom. The code is in Day07Prep.js.
 
 The only code that matters then is:
 
