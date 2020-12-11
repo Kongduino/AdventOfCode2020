@@ -326,11 +326,15 @@ map.push("...###.###.....##..........#..#");
 var i, j = map.length;
 function day03(incX = 1, incY = 1) {
   var ln = j * incX;
+  // make sure we have enough width: this is done
+  // by doubling each line until we have a length of
+  // horizontal increment x height
   var posx = 0, count = 0;
   for (i = incY; i < j; i += incY) {
     var line = map[i];
     while (line.length < ln) line = line + line;
     line = line.substr(0, ln);
+    // Ensure the line is long enough
     posx += incX;
     if (line.substr(posx, 1) == "#") {
       count += 1;
@@ -339,7 +343,7 @@ function day03(incX = 1, incY = 1) {
     } // else line = line.substr(0, posx) + "O" + line.substr(posx + 1);
   }
   var lnNum = "Scenario "+(incX)+"/"+(incY)+": "+count;
-  if(incX==3) lnNum+= " (part 1)"
+  if(incX==3) lnNum+= " (part 1)"; // 3,1 is part 1
   console.log(lnNum);
   return count;
 }

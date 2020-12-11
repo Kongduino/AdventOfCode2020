@@ -642,35 +642,40 @@ lines.push("acc +42");
 lines.push("acc -4");
 lines.push("jmp +1");
 
-var i,j = lines.length;
+var i, j = lines.length;
 var instructionsDone=[];
 for(i=0;i<j;i++) {
   instructionsDone[i]="N";
 }
+// This array holds the status of each instruction
+// initialized at "N" --> no
 
 var counter=0;
-var PC=0;
+var PC=0; // Program Counter. z80, baby
 var keepGoing=true;
 while(keepGoing) {
-  var [inst,val]=lines[PC].split(" ");
-  // console.log(" . counter =",counter,"instruction:",lines[PC]);
+  var [inst, val]=lines[PC].split(" ");
+  // console.log(" . counter =", counter, "instruction:", lines[PC]);
   if(instructionsDone[PC]=="Y") {
-    console.log("Stop. counter =",counter);
+    // Stop: we have already executed this instruction
+    console.log("Stop. counter =", counter);
     keepGoing=false;
     break;
   }
   instructionsDone[PC]="Y";
+  // Now we have.
   val=parseInt(val);
   if(inst=="nop") {
-    PC+=1;
+    PC+=1; // just increment PC. Ignore value
   } else if(inst=="jmp") {
-    PC+=val;
+    PC+=val; // Add value to PC
   } else {
-    counter+=val;
-    PC+=1;
+    counter+=val; // Add value to counter
+    PC+=1; // increment PC
   }
   if(PC==j) {
-    console.log("End of file. counter =",counter);
+    // Last instruction. We stop here.
+    console.log("End of file. counter =", counter);
     keepGoing=false;
     break;
   }

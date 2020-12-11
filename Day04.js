@@ -1,3 +1,11 @@
+/*
+Again the input was optimized with a regex, into JSON objects.
+That is what JSON was made for anyway...
+
+This makes the code ridiculously easy...
+
+*/
+
 var lines=[];
 lines.push('{"eyr": "2029", "byr": "1931", "hcl": "z", "cid": "128", "ecl": "amb", "hgt": "150cm", "iyr": "2015", "pid": "148714704"}');
 lines.push('{"byr": "2013", "hgt": "70cm", "pid": "76982670", "ecl": "#4f9a1c", "hcl": "9e724b", "eyr": "1981", "iyr": "2027"}');

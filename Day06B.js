@@ -492,6 +492,8 @@ for(i=0;i<j;i++) {
   var gr=groups[i];
   var n, k=gr.length;
   var dd=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // This will store the tally for the 26 letters
+  // For the moment initialized at 0
   // console.log("Group",i);
   for(n=0; n<k; n++) {
     var line=gr[n];
@@ -499,10 +501,14 @@ for(i=0;i<j;i++) {
     var count=0;
     for(x=0; x<y; x++) {
       dd[line.charCodeAt(x)-0x61]+=1;
+      // Increment count.
     }
   }
   for(x=0; x<26; x++) {
     if(dd[x]==k) count+=1;
+    // compare the tally for the letter with the number
+    // of people in the group
+    // increment if equal (if everybody answered Y)
   }
   // console.log(i,count,dd);
   total+=count;

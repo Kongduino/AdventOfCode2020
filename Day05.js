@@ -908,6 +908,7 @@ function calculateFB(s) {
     var x = s.substr(i, 1);
     var half = (lRow - fRow + 1) / 2;
     // console.log(x,fRow,lRow,half);
+    // halve high or low depending on F|B
     if (x == "F") {
       lRow = fRow + half - 1;
     } else {
@@ -924,6 +925,7 @@ function calculateLR(s) {
     var x = s.substr(i, 1);
     var half = (lRow - fRow + 1) / 2;
      //console.log(x,fRow,lRow,half);
+    // halve left or right depending on L|R
     if (x == "L") {
       lRow = fRow + half - 1;
     } else {
@@ -941,6 +943,7 @@ function calculateFBLR(s) {
   return [rslt, row, col];
 }
 
+// That's part 1
 var flight=Array(128);
 var ix, jx = lines.length;
 var score = -1, rslt, row, col;
@@ -957,12 +960,15 @@ for (ix = 0; ix < jx; ix++) {
   flight[row]=r;
 }
 console.log("Best score:", score,"(part 1)");
-
 // console.table(flight);
 
+// Part 2
 for (ix = 0; ix < 128; ix++) {
   r=flight[ix].join("");
   // console.log(ix, r);
+  // regex AGAIN at the rescue. We're looking for
+  // an empty seat surrounded by 2 valid, occupied seats
+  // aka X.X
   n=r.search(/X\.X/);
   if(n>-1) {
     console.log("Found it:",ix,n+1,"ID:", (ix*8+n+1),"(part 2)");

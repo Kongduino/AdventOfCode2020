@@ -617,3 +617,7 @@ for (i = 0; i < j; i++) {
   containers[who]=dd;
 }
 
+// This code generates JS code.
+// It needs to be sorted alphabetically with
+// graph.addNode() lines first.
+// --> Day07Part1.js

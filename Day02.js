@@ -2,6 +2,7 @@
   ^(\d+)-(\d+) (\w): (\w+)\n
   to
   pwd="\4";r=RegExp(/^\3{\1,\2}$/);pwd0=pwd.replace(/[^\3]+/g,"");if(r.test(pwd0))valid+=1;\n
+  This code was produced from the input with the regex above. The only hand-code line is the last one.
 */
 var rslt = false;
 var valid = 0;

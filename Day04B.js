@@ -291,6 +291,8 @@ lines.push('{"eyr": "2025", "hgt": "161cm", "iyr": "1962", "pid": "394421140", "
 var field=""; // Used to check validity
 // if field != "pid" after return validation failed.
 function validate(o) {
+  // We're going to check every field except cid
+  // The first 3 are numeric. Easy city...
   if(o==undefined) return;
   field="byr";
   var x=parseInt(o[field]);
@@ -306,6 +308,7 @@ function validate(o) {
 
   field="hgt";
   x=parseInt(o[field]);
+  // parseInt will ignore cm/in
   var min,max;
   if(o.hgt.substr(-2)=="cm") {
     min=150; max=193;
@@ -316,14 +319,17 @@ function validate(o) {
 
   field="hcl";
   var r=RegExp(/^#[0-9a-f]{6}$/);
+  // regex at the rescue as usual...
   if(!r.test(o[field])) return;
 
   field="ecl";
   r=RegExp(/^(amb|blu|brn|gry|grn|hzl|oth)$/);
+  // can't be simpler...
   if(!r.test(o[field])) return;
 
   field="pid";
   r=RegExp(/^\d\d\d\d\d\d\d\d\d$/);
+  // nuff said?
   if(!r.test(o[field])) return;
   valid+=1;
 }
@@ -336,10 +342,14 @@ for(i=0;i<j;i++) {
   if(count==8) {
     validate(o);
     // if(field!="pid") console.log(i,"8-count fail");
+    // if the return field is not "pid" we didn't go all the way
+    // and thus we failed.
     // else console.log(i,"8-count pass");
   } else if(count==7 && o.cid==undefined) {
     validate(o);
     // if(field!="pid") console.log(i,"7-count fail");
+    // if the return field is not "pid" we didn't go all the way
+    // and thus we failed.
     // else console.log(i,"7-count pass");
   //} else {
     // console.log(i,"fail");

@@ -485,7 +485,6 @@ groups.push(["o", "s", "s"]);
 groups.push(["ubfrgyp", "vybfpkrg", "erfybg", "nbgyrf", "zfwrgby"]);
 groups.push(["gjnbfartdoiem", "ajbtgermdqnfio", "mfijcthadgnobuew"]);
 
-
 var i, j = groups.length;
 var total=0;
 
@@ -493,11 +492,13 @@ for(i=0;i<j;i++) {
   var gr=groups[i];
   var n, k=gr.length;
   var dd={}, sttl=0;
+  // for each group create a dictionary and add the yes answers
+  // to it --> keys can't be duplicates, so it will give us the total
   for(n=0; n<k; n++) {
     var line=gr[n];
     var x, y=line.length;
     for(x=0; x<y; x++) {
-      dd[line.substr(x,1)]=line.substr(x,1);
+      dd[line.substr(x,1)]="Y";
     }
   }
   var count=Object.keys(dd).length;
@@ -505,3 +506,4 @@ for(i=0;i<j;i++) {
   total+=count;
 }
 console.log("Total:", total);
+// Total: 6585

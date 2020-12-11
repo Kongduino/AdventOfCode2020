@@ -643,6 +643,7 @@ lines.push("acc -4");
 lines.push("jmp +1");
 
 function run() {
+  // Same code, in a function, as part 1, but we return PC.
   var i, j = lines.length;
   var instructionsDone = [];
   for (i = 0; i < j; i++) {
@@ -679,20 +680,22 @@ function run() {
 
 var ix, jx = lines.length;
 for (ix = 0; ix < jx; ix++) {
+  // We are going to loop over each line, swapping nop<>jmp one by one
+  // and trying the modified code
   var [inst0, val0] = lines[ix].split(" ");
   var sw = "";
   if (inst0 == "nop") {
-    sw = "nop";
+    sw = "nop"; // save nop for restore
     lines[ix] = "jmp " + val0;
   } else if (inst0 == "jmp") {
-    sw = "jmp";
+    sw = "jmp"; // save nop for restore
     lines[ix] = "nop " + val0;
   }
   var result = run();
   // console.log(ix, lines[ix], result);
-  lines[ix] = sw + " " + val0;
   if (result == jx) {
     console.log("Success. Stop at", ix);
     ix=jx;
   }
+  lines[ix] = sw + " " + val0;  // restore code and loop
 }

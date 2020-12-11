@@ -2069,4 +2069,4 @@ graph.addDependency('plaid red', 'wavy white');
 graph.addDependency('dotted orange', 'wavy yellow');
 graph.addDependency('light silver', 'wavy yellow');
 var t=graph.dependenciesOf('shiny gold');
-console.log(t.length, t);
+console.log(t, t.length, "items");

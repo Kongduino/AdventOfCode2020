@@ -1002,11 +1002,15 @@ lines.push(74666900633242);
 lines.push(74720465788853);
 
 function lookup25(ix) {
+  // compare value with previous 25 numbers
   var my25 = lines.slice(ix - 25, ix);
+  // make a MUCH smaller array with only the required numbers
   for (var n = 0; n < 25; n++) {
     c = lines[ix] - my25[n];
+    // Same principle as Day01. We're looking for the remainder.
     if (c > 0) {
       // console.log(" - looking for", lines[ix], "-", my25[n], '=',c);
+      // if current number is bigger than our target no point...
       var found = my25.find(element => element == c);
       if (found) {
         // console.log(" .", n, found, my25[n]);
@@ -1029,32 +1033,39 @@ for(i=25;i<j;i++) {
   }
 }
 if(r==-1) console.log("--> None found");
-
+// Shouldn't happen
 
 // Line 523, 32321523
 
 function sumUp(ix, lmt, total) {
   var sum=0;
   for (var v=0;v<lmt;v++) {
+    // we loop over a decreasing section of the 25
+    // to see if we get an amount that's an exact match
     sum+=lines[ix+v];
-    if(sum==total) return [ix,ix+v];
-    if(sum>total) return [-1,-1];
-  }  return [-2,-2];
+    if(sum==total) return [ix,ix+v]; // found the set
+    if(sum>total) return [-1,-1]; // Like in Baccarat you went over!
+  }  return [-2,-2]; // After a full loop we were still too low.
 }
 
 for (i = 0; i < r; i++) {
+  // No point going beyond r-1
+  // r being the row of the match in Part 1
   var st, en;
   [st, en] = sumUp(i, r, lines[r]);
   if (st > -1) {
+    // Match
     console.log(st, en);
     var cnt = lines[st], myList=[];
     console.log(" >", st, lines[st]);
+    // calculate the sum to check
     for (zz = st+1; zz < en+1; zz++) {
       cnt += lines[zz];
       console.log(" >", zz, lines[zz], cnt);
       myList.push(lines[zz]);
     }
     myList.sort();
+    // We need first and last
     console.log(myList[0],"+",myList[myList.length-1],"=",myList[0]+myList[myList.length-1]);
     break;
   }
