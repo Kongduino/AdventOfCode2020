@@ -26,12 +26,12 @@ while(go==true) {
 
 console.log("\n\nPart2:");
 // var intervals=[0, 1, 4, 6, 7];
-buses=[17, 41, 643, 23, 13, 29, 433, 37, 19];
-intervals=[0, 34, 626, 21, 9, 12, 385, 20, 9];
+buses=    [17, 41, 643, 23, 13, 29, 433, 37, 19];
+intervals=[ 0, 34, 626, 21,  9, 12, 385, 20,  9];
 
 var iterator=0;
 var increment=1;
-for(i=0; i<j; i++) {
+for(i=0; i<buses.length; i++) {
   var bus=buses[i];
   console.log("Looking for", iterator, "vs mods[", bus, "]", intervals[i]);
   while ((iterator % bus) != intervals[i]) {
@@ -41,4 +41,3 @@ for(i=0; i<j; i++) {
   increment *= bus;
 }
 console.log("Answer:", iterator);
-
